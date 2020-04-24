@@ -22,20 +22,11 @@ class Pass extends Component {
     }
     axios.get('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?', { params })
       .then(res => {
-        console.log(res.data.response); // for debug, delete later
         let passes = [...res.data.response];
         this.setState({
           passes
         })
       })
-  }
-
-  formatTime(timestamp) {
-    var date = new Date(timestamp * 1000);
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    var seconds = "0" + date.getSeconds();
-    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
   }
 
   formatDuration(timestamp) {
@@ -56,7 +47,7 @@ class Pass extends Component {
           <div className="pass" key={++passNum}>
             <h5 className="">Pass #{passNum}:</h5>
             <h6 className="data">
-              - Rise Time: {this.formatTime(pass.risetime)}  - 
+              - Rise Time: {this.props.formatTime(pass.risetime)}  - 
               Pass Duration: {this.formatDuration(pass.duration)}
             </h6>
           </div>

@@ -3,7 +3,9 @@ import axios from 'axios';
 
 class Current extends Component {
   state = {
-    data: null // refactor to use lat, long, time
+    lat: null,
+    lon: null,
+    time: null
   }
 
   componentDidMount() {
@@ -21,29 +23,22 @@ class Current extends Component {
     axios.get('http://api.open-notify.org/iss-now.json')
       .then(res => {
         this.setState({
-          data: res.data
+          lat: res.data.iss_position.latitude,
+          lon: res.data.iss_position.longitude,
+          time: res.data.timestamp
         })
       })
   }
 
-  formatTime(timestamp) {
-    var date = new Date(timestamp * 1000);
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    var seconds = "0" + date.getSeconds();
-    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-  }
-
   render() {
     let posData = <div className="center loading">Loading Position data...</div>;
-    let posInfo = this.state.data;
-    if (posInfo) {
+    if (this.state.lat) {
       posData = (
         <div className="container center">
           <div className="card">
-            <h4 className="data-label">Latitude: {posInfo.iss_position.latitude}</h4>
-            <h4 className="data-label">Longitude: {posInfo.iss_position.longitude}</h4>
-            <h4 className="data-label">Time: {this.formatTime(posInfo.timestamp)} </h4>
+            <h4 className="data-label">Latitude: {this.state.lat}</h4>
+            <h4 className="data-label">Longitude: {this.state.lon}</h4>
+            <h4 className="data-label">Time: {this.props.formatTime(this.state.time)} </h4>
           </div>
         </div>
       )
@@ -56,6 +51,6 @@ class Current extends Component {
     )
   }
 }
-// Ideas for improvement: Map with updated position every 5 sec
+// Ideas for improvement: Graphical Map with updated position every 5 sec (Leaflet, Google Maps, etc.)
 
 export default Current;

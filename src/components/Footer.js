@@ -7,7 +7,7 @@ function Footer() {
         Contact Author : 
         <a href="mailto:nmarchese@gmail.com" className="email">nmarchese@gmail.com</a>
       </h6>
-    </div> //todo: footer html
+    </div>
   )
 }
 
