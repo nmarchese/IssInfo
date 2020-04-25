@@ -8,6 +8,10 @@ body {
   background-color: #cbcae4;
 }
 
+.content {
+  min-height: calc(100vh - 45px);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -28,6 +32,15 @@ code {
 
 .data-label {
   margin: 10px;
+}
+
+.map-card {
+  margin-bottom: 20px;
+}
+
+.map-pos-data {
+  font-weight: 500;
+  margin: 0px 10px 0px 10px;
 }
 
 .data {
@@ -67,9 +80,14 @@ code {
 
 .footer {
   width: 100%;
-  height: 3em;
-  position: fixed;
+  height: 45px;
+  /* position: fixed; */
   left: 0;
   bottom: 0;
+  flex-shrink: 0;
+}
+
+.leaflet-container {
+  height: 450px;
   width: 100%;
 }

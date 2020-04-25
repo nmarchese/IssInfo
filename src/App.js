@@ -19,17 +19,19 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <header>
-            <Navbar />
-          </header>
-          <main>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/current' render={() => <Current formatTime={this.formatTime} />} />
-              <Route path='/pass' render={() => <Pass formatTime={this.formatTime} />} />
-              <Route path='/individuals' component={Individuals} />
-            </Switch>
-          </main>
+          <div className="content">
+            <header>
+              <Navbar />
+            </header>
+            <main>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/current' render={() => <Current formatTime={this.formatTime} />} />
+                <Route path='/pass' render={() => <Pass formatTime={this.formatTime} />} />
+                <Route path='/individuals' component={Individuals} />
+              </Switch>
+            </main>
+          </div>
           <footer>
             <Footer />
           </footer>
