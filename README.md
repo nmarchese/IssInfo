@@ -1,3 +1,27 @@
+# ISS Info
+ 
+This simple React single page app (SPA) utilizes an api (open-notify.org) to get json data about the International Space Station and then displays the information within individual React components.
+ 
+### Using ISS Info
+ 
+Navigate the app using the navbar or buttons on the homepage.
+ 
+#### ISS Current Location
+ 
+Displays world map with a pin denoting the current location of the ISS along with the latitude and longitude and a timestamp of when the position data was last updated (by default the app updates positional data every 5 seconds).
+ 
+#### ISS Pass Times
+ 
+Allows users to input positional data for a fixed location and upon submit displays data about the next n (user specified number) of ISS passes that will be visible from the specified location.
+ 
+#### Individuals in Space
+ 
+Displays basic information about the individuals that are currently on the ISS.
+
+
+
+# Default React stuff from creating app with cli tool:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
